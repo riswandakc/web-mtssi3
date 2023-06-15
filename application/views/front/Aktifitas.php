@@ -1,9 +1,9 @@
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/hero_5.jpg');">
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('<?php echo base_url().'/assets/assets_front/images/kegiatan-siswa.jpg'?>');">
     <div class="container">
       <div class="row same-height justify-content-center">
         <div class="col-md-6">
           <div class="post-entry text-center">
-            <h3 class="mb-4"><?= $title2; ?></h3>
+            <br><br><br><h3 class="mb-4"><?= $title2; ?></h3><br><br><br>
           </div>
         </div>
       </div>

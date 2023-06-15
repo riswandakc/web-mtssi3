@@ -119,7 +119,7 @@
 							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
 								<span></span>
 							</a>
-							<a href="<?= base_url(); ?>admin/C_login" class="btn btn-outline-warning">Login</a>
+							<a href="<?= base_url(); ?>admin/C_login" class="btn btn-outline-warning" target="_blank">Login</a>
 							<!-- <form action="#" class="search-form d-none d-lg-inline-block">
 								<input type="text" class="form-control" placeholder="Search...">
 								<span class="bi-search"></span>

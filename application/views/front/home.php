@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="banner-web mb-2" >
 				<a href="">
-					<img src="<?= base_url(); ?>assets/assets_front/images/banner-web.png" alt="" width="100%">
+					<img src="<?= base_url(); ?>assets/assets_front/images/header_blog.jpg" alt="" width="100%">
 				</a>
 			</div>
 			<div class="row align-items-stretch retro-layout">
@@ -62,13 +62,13 @@
 						</div> -->
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" class="d-block w-100" alt="...">
+								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
 							</div>
 							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" class="d-block w-100" alt="...">
+								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
 							</div>
 							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" class="d-block w-100" alt="...">
+								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
 							</div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
