@@ -140,6 +140,24 @@ class M_admin extends CI_Model
         }
     }
 //end model login
+//start slider
+    public function getDataSlider1()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_galeri');
+        $this->db->order_by('id_galeri','DESC');
+        $this->db->limit(4);
+        return $this->db->get()->result();
+    }
+    public function getDataSlider2()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_berita');
+        $this->db->order_by('id_berita','DESC');
+        $this->db->limit(4);
+        return $this->db->get()->result();
+    }
+//end slider
 
 
 }

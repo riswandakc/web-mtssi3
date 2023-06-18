@@ -13,32 +13,38 @@
 				<div class="col-lg-7">
 					<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 						<div class="carousel-indicators">
-							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+							<?php 
+								foreach ($slider as $key => $value) {
+									if ($key == 0) { ?>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" class="active" aria-current="true" aria-label="Slide 1"></button>
+									<?php }else{ ?>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" aria-current="true" aria-label="Slide 2"></button>
+									<?php }
+								}
+							?>
 						</div>
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="<?php echo base_url().'/assets/assets_front/images/hero_1.jpg' ?>" class="d-block w-100" alt="...">
-								<div class="carousel-caption d-none d-md-block">
-									<h5>First slide label</h5>
-									<p>Some representative placeholder content for the first slide.</p>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/hero_2.jpg' ?>" class="d-block w-100" alt="...">
-								<div class="carousel-caption d-none d-md-block">
-									<h5>Second slide label</h5>
-									<p>Some representative placeholder content for the second slide.</p>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/hero_3.jpg' ?>" class="d-block w-100" alt="...">
-								<div class="carousel-caption d-none d-md-block">
-									<h5>Third slide label</h5>
-									<p>Some representative placeholder content for the third slide.</p>
-								</div>
-							</div>
+							<?php 
+								foreach ($slider as $key => $value) {
+									if ($key == 0) {?>
+										<div class="carousel-item active">
+											<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+											<div class="carousel-caption d-none d-md-block">
+												<h5><?= $value->judul ?></h5>
+												<p><?= $value->deskripsi ?></p>
+											</div>
+										</div>
+									<?php }else{?>
+										<div class="carousel-item">
+											<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+											<div class="carousel-caption d-none d-md-block">
+												<h5><?= $value->judul ?></h5>
+												<p><?= $value->deskripsi ?></p>
+											</div>
+										</div>
+									<?php }
+								}
+							?>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,28 +60,48 @@
 				<!-- start carousel galeri right -->
 				<div class="col-md-5">
 					
-					<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-						<!-- <div class="carousel-indicators">
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-						</div> -->
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo base_url().'/assets/assets_front/images/img_3_horizontal.jpg' ?>" width="100%" height="100%" class="d-block w-100" alt="...">
-							</div>
+					<div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<?php 
+								foreach ($slider_berita as $key => $value) {
+									if ($key == 0) { ?>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" class="active" aria-current="true" aria-label="Slide 1"></button>
+									<?php }else{ ?>
+										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" aria-current="true" aria-label="Slide 2"></button>
+									<?php }
+								}
+							?>
 						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<div class="carousel-inner">
+							<?php 
+								foreach ($slider_berita as $key => $value) {
+									if ($key == 0) {?>
+										<div class="carousel-item active">
+										  	<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+												<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+												<div class="carousel-caption d-none d-md-block">
+													<h5><?= $value->judul ?></h5>
+												</div>
+										  	</a>
+										</div>
+									<?php }else{?>
+										<div class="carousel-item">
+											<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+												<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+												<div class="carousel-caption d-none d-md-block">
+													<h5><?= $value->judul ?></h5>
+												</div>
+											</a>
+										</div>
+									<?php }
+								}
+							?>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 							<span class="visually-hidden">Previous</span>
 						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
 							<span class="carousel-control-next-icon" aria-hidden="true"></span>
 							<span class="visually-hidden">Next</span>
 						</button>

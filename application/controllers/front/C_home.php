@@ -24,6 +24,10 @@ class C_home extends CI_Controller {
         $data['start'] = $this->uri->segment(4);
         $data['berita'] = $this->M_admin->GetDataPage($config['per_page'],$data['start'])->result_array();
 
+        //slider
+        $data['slider'] = $this->M_admin->getDataSlider1();
+        $data['slider_berita'] = $this->M_admin->getDataSlider2();
+
         $this->load->view('front/template/header',$data);
         $this->load->view('front/home',$data);
         $this->load->view('front/template/footer');
