@@ -70,11 +70,11 @@
 								<li class="has-children">
 									<a href="#">Profile</a>
 									<ul class="dropdown">
-										<li><a href="<?= base_url(); ?>front/C_sambutan">Sambutan Kepala Madrasah</a></li>
-										<li><a href="<?= base_url(); ?>front/C_latarBelakang">Latar Belakang Pendirian</a></li>
-										<li><a href="<?= base_url(); ?>front/C_strukturMD">Struktur Organisasi Madrasah</a></li>
-										<li><a href="<?= base_url(); ?>front/C_strukturLembaga">Struktur Lembaga Penyelenggara / Yayasan</a></li>
-										<li><a href="<?= base_url(); ?>front/C_VisiMisi">Visi Misi Madrasah</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/sambutan">Sambutan Kepala Madrasah</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/LatarBelakang">Latar Belakang Pendirian</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/strukturMD">Struktur Organisasi Madrasah</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/strukturLembaga">Struktur Lembaga Penyelenggara / Yayasan</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/VisiMisi">Visi Misi Madrasah</a></li>
 									</ul>
 								</li>
 								<li class="has-children">

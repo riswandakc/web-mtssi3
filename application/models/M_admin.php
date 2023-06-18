@@ -9,12 +9,15 @@ class M_admin extends CI_Model
 	    $this->db->join('tb_kategori_berita','tb_berita.id_kategori = tb_kategori_berita.id_kategori','left');
         $this->db->order_by('tb_berita.id_berita','DESC');
         return $this->db->get();
-
-        /* return $this->db->query("SELECT tb_berita.*, tb_kategori_berita.id_kategori as id_kategori, tb_kategori_berita.kategori as kategori_berita 
-        FROM tb_berita 
-        LEFT JOIN tb_kategori_berita ON tb_berita.id_kategori = tb_kategori_berita.id_kategori 
-        ORDER BY id_berita 
-        DESC"); */
+    }
+    public function GetDataLimit()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_berita');
+	    $this->db->join('tb_kategori_berita','tb_berita.id_kategori = tb_kategori_berita.id_kategori','left');
+        $this->db->order_by('tb_berita.id_berita','DESC');
+        $this->db->limit(4);
+        return $this->db->get();
     }
     public function insert_data($data,$table)
     {
