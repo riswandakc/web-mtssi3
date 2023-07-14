@@ -202,12 +202,12 @@
 										<ul>
 										  <?php foreach ($video as $v): ?>
 											<li>
-												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $v['id_berita']; ?>">
-													<img src="<?php echo base_url().'/assets/photo/'.$v['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="300px;">
+												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $v['id_link']; ?>">
+													<!-- <img src="<?php echo base_url().'/assets/photo/'.$v['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="300px;"> -->
 													<div class="text">
-														<h7 style="color : black;"><?= $v['judul']; ?></h7>
+														<h7 style="color : black;"><?= $v['judul_link']; ?></h7>
 														<div class="post-meta">
-															<span class="mr-2"><?= $v['tanggal']; ?></span>
+															<!-- <span class="mr-2"><?= $v['tanggal']; ?></span> -->
 														</div>
 													</div>
 												</a>
@@ -304,9 +304,9 @@
 						</div>
 						<div class="card-body" style="padding: 0.5rem 0.5rem; height: 100%; overflow:auto;">
 							<ul style="margin: 0rem; padding-left: 0rem;">
-								<?php foreach ($kategori as $k): ?>
+								<?php foreach ($link as $l): ?>
 									<li class="list-unstyled">
-										<a href=""><?= $k['kategori']; ?></a>
+										<a href=""><?= $l['judul_link']; ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>

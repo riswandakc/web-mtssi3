@@ -59,13 +59,28 @@ class M_admin extends CI_Model
     }
     public function GetDataVideo()
     {
-        return $this->db->query("SELECT * FROM tb_berita WHERE kategori ='Video' ORDER BY kategori DESC");
+        $this->db->SELECT('*');
+        $this->db->from('tb_link');
+        $this->db->join('tb_kategori_berita','tb_link.id_kategori = tb_kategori_berita.id_kategori','left');
+        $this->db->where('tb_link.id_kategori = 22');
+        $this->db->order_by('tb_link.id_link','DESC');
+        return $this->db->get();
     }
     public function GetDataPanduan()
     {
         return $this->db->query("SELECT * FROM tb_berita WHERE kategori ='Panduan' ORDER BY kategori DESC");
     }
 /* end model berita by kategori */
+/* Start model Link / Tautan */
+    public function GetDataTautan()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_link');
+        $this->db->join('tb_kategori_berita','tb_link.id_kategori = tb_kategori_berita.id_kategori','left');
+        $this->db->order_by('tb_link.id_link','DESC');
+        return $this->db->get();
+    }
+/* end model Link / Tautan */
 /* start show data pagination */
     public function GetDataPage($limit, $start)
     {

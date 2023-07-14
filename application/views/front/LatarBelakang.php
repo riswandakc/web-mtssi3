@@ -23,6 +23,7 @@
         <div class="col-md-12 col-lg-8 main-content">
           <div class="post-content-body text-justify">
             <div class="mg-card-box padding-20">
+                <img src="" alt="">
                 
                 <p class="MsoNormal" style="text-indent: 36pt;" align="justify">SMP Negeri 1 Perak berdiri pada tanggal 18 Oktober 1982 di atas tanah seluas 9770 yang bertempat di Jalan Raya Perak, Desa Kalangsemanding, Kec. Perak, Kab. Jombang.</p>
 
