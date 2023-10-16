@@ -1,130 +1,152 @@
-
-
-	<!-- Start retroy layout blog posts -->
-	<section class="section bg-light" style="padding-bottom: 1rem; padding-top: 0.5rem;">
-		<div class="container">
-			<div class="banner-web mb-2" >
-				<a href="">
-					<img src="<?= base_url(); ?>assets/assets_front/images/header_blog.jpg" alt="" width="100%">
-				</a>
-			</div>
-			<div class="row align-items-stretch retro-layout">
-				<!-- start carousel berita left -->
-				<div class="col-lg-7">
-					<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-indicators">
-							<?php 
-								foreach ($slider as $key => $value) {
-									if ($key == 0) { ?>
-										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" class="active" aria-current="true" aria-label="Slide 1"></button>
-									<?php }else{ ?>
-										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" aria-current="true" aria-label="Slide 2"></button>
-									<?php }
-								}
-							?>
-						</div>
-						<div class="carousel-inner">
-							<?php 
-								foreach ($slider as $key => $value) {
-									if ($key == 0) {?>
-										<div class="carousel-item active">
-											<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
-											<div class="carousel-caption d-none d-md-block">
-												<h5><?= $value->judul ?></h5>
-												<p><?= $value->deskripsi ?></p>
-											</div>
-										</div>
-									<?php }else{?>
-										<div class="carousel-item">
-											<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
-											<div class="carousel-caption d-none d-md-block">
-												<h5><?= $value->judul ?></h5>
-												<p><?= $value->deskripsi ?></p>
-											</div>
-										</div>
-									<?php }
-								}
-							?>
-						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-				</div>
-				<!-- end carousel berita left -->
-				<!-- start carousel galeri right -->
-				<div class="col-md-5">
-					
-					<div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-indicators">
-							<?php 
-								foreach ($slider_berita as $key => $value) {
-									if ($key == 0) { ?>
-										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" class="active" aria-current="true" aria-label="Slide 1"></button>
-									<?php }else{ ?>
-										<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" aria-current="true" aria-label="Slide 2"></button>
-									<?php }
-								}
-							?>
-						</div>
-						<div class="carousel-inner">
-							<?php 
-								foreach ($slider_berita as $key => $value) {
-									if ($key == 0) {?>
-										<div class="carousel-item active">
-										  	<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
-												<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
-												<div class="carousel-caption d-none d-md-block">
-													<h5><?= $value->judul ?></h5>
-												</div>
-										  	</a>
-										</div>
-									<?php }else{?>
-										<div class="carousel-item">
-											<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
-												<img src="<?php echo base_url().'/assets/photo/'.$value->gambar ?>" alt="" width="100%" style="width: 100%; height: 300px; object-fit: cover;">
-												<div class="carousel-caption d-none d-md-block">
-													<h5><?= $value->judul ?></h5>
-												</div>
-											</a>
-										</div>
-									<?php }
-								}
-							?>
-						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-
-				</div>
-				<!-- end carousel galeri right -->
-			</div>
+<!-- Start retroy layout blog posts -->
+<section class="section bg-light" style="padding-bottom: 1rem; padding-top: 0.5rem;">
+	<div class="container">
+		<div class="banner-web mb-2">
+			<a href="">
+				<img src="<?= base_url(); ?>assets/assets_front/images/header_blog.jpg" alt="" width="100%">
+			</a>
 		</div>
-	</section>
-	<!-- End retroy layout blog posts -->
-	
-	<!-- Start posts-entry -->
-	<section class="section posts-entry" style="padding-top:2rem; padding-bottom: 0rem;">
-		<div class="container">
-			<!-- <div class="row mb-4">
+		<div class="row align-items-stretch retro-layout">
+			<!-- start carousel berita left -->
+			<div class="col-lg-7 mb-2">
+				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<?php
+						foreach ($slider as $key => $value) {
+							if ($key == 0) { ?>
+								<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>"
+									class="active" aria-current="true" aria-label="Slide 1"></button>
+							<?php } else { ?>
+								<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>"
+									aria-current="true" aria-label="Slide 2"></button>
+							<?php }
+						}
+						?>
+					</div>
+					<div class="carousel-inner">
+						<?php
+						foreach ($slider as $key => $value) {
+							if ($key == 0) { ?>
+								<div class="carousel-item active">
+									<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt="" width="100%"
+										style="width: 100%; height: 300px; object-fit: cover;">
+									<div class="carousel-caption d-none d-md-block">
+										<h5>
+											<?= $value->judul ?>
+										</h5>
+										<p>
+											<?= $value->deskripsi ?>
+										</p>
+									</div>
+								</div>
+							<?php } else { ?>
+								<div class="carousel-item">
+									<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt="" width="100%"
+										style="width: 100%; height: 300px; object-fit: cover;">
+									<div class="carousel-caption d-none d-md-block">
+										<h5>
+											<?= $value->judul ?>
+										</h5>
+										<p>
+											<?= $value->deskripsi ?>
+										</p>
+									</div>
+								</div>
+							<?php }
+						}
+						?>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+			<!-- end carousel berita left -->
+			<!-- start carousel galeri right -->
+			<div class="col-md-5">
+
+				<div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<?php
+						foreach ($slider_berita as $key => $value) {
+							if ($key == 0) { ?>
+								<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>"
+									class="active" aria-current="true" aria-label="Slide 1"></button>
+							<?php } else { ?>
+								<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>"
+									aria-current="true" aria-label="Slide 2"></button>
+							<?php }
+						}
+						?>
+					</div>
+					<div class="carousel-inner">
+						<?php
+						foreach ($slider_berita as $key => $value) {
+							if ($key == 0) { ?>
+								<div class="carousel-item active">
+									<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+										<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt=""
+											width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+										<div class="carousel-caption d-none d-md-block">
+											<h5>
+												<?= $value->judul ?>
+											</h5>
+										</div>
+									</a>
+								</div>
+							<?php } else { ?>
+								<div class="carousel-item">
+									<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+										<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt=""
+											width="100%" style="width: 100%; height: 300px; object-fit: cover;">
+										<div class="carousel-caption d-none d-md-block">
+											<h5>
+												<?= $value->judul ?>
+											</h5>
+										</div>
+									</a>
+								</div>
+							<?php }
+						}
+						?>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+
+			</div>
+			<!-- end carousel galeri right -->
+		</div>
+	</div>
+</section>
+<!-- End retroy layout blog posts -->
+
+<!-- Start posts-entry -->
+<section class="section posts-entry" style="padding-top:2rem; padding-bottom: 0rem;">
+	<div class="container">
+		<!-- <div class="row mb-4">
 				<div class="col-sm-6">
 					<h2 class="posts-entry-title">Business</h2>
 				</div>
 				<div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">View All</a></div>
 			</div> -->
-			<div class="row g-3">
-			  <div class="col-md-8">
+		<div class="row g-3">
+			<div class="col-md-8">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="card">
@@ -136,27 +158,34 @@
 									<div class="post-entry-footer">
 										<ul>
 											<?php foreach ($berita as $b): ?>
-											<li>
-												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $b['id_berita']; ?>">
-													<img src="<?php echo base_url().'/assets/photo/'.$b['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="60px;">
-													<div class="text">
-														<h6 style="color : black;"><?= $b['judul']; ?></h6>
-														<div class="post-meta">
-															<span class="mr-2"><?= $b['kategori']; ?></span><br>
-															<span class="mr-2"><?= $b['tanggal']; ?></span>
+												<li>
+													<a href="<?= base_url(); ?>C_home/DetailBerita/<?= $b['id_berita']; ?>">
+														<img src="<?php echo base_url() . '/assets/photo/' . $b['gambar'] ?>"
+															alt="Image placeholder" class="me-4 rounded" width="60px;">
+														<div class="text">
+															<h6 style="color : black;">
+																<?= $b['judul']; ?>
+															</h6>
+															<div class="post-meta">
+																<span class="mr-2">
+																	<?= $b['kategori']; ?>
+																</span><br>
+																<span class="mr-2">
+																	<?= $b['tanggal']; ?>
+																</span>
+															</div>
 														</div>
-													</div>
-												</a>
-											</li>
+													</a>
+												</li>
 											<?php endforeach; ?>
 										</ul>
 									</div>
-									
+
 								</div> <!-- /.widget -->
-		
+
 							</div>
 							<div class="card-footer" style="height: 57px">
-							<?= $this->pagination->create_links(); ?>
+								<?= $this->pagination->create_links(); ?>
 							</div>
 						</div>
 					</div> <!-- /.col-lg-4 -->
@@ -166,7 +195,7 @@
 								<img src="<?= base_url(); ?>assets/assets_front/images/sejarah.png" alt="" width="100%">
 							</a>
 						</div>
-						<div class="card mb-2" style="height: 300px">
+						<div class="card mb-2" style="height: 350px">
 							<div class="card-header">
 								<h5 class="">Informasi</h5>
 							</div>
@@ -174,19 +203,24 @@
 								<div class="widget">
 									<div class="post-entry-footer">
 										<ul>
-										  <?php foreach ($informasi as $i): ?>
-											<li>
-												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $i['id_berita']; ?>">
-													<img src="<?php echo base_url().'/assets/photo/'.$i['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="80px;">
-													<div class="text">
-														<h7 style="color : black;"><?= $i['judul']; ?></h7>
-														<div class="post-meta">
-															<span class="mr-2"><?= $i['tanggal']; ?></span>
+											<?php foreach ($informasi as $i): ?>
+												<li>
+													<a href="<?= base_url(); ?>C_home/DetailBerita/<?= $i['id_berita']; ?>">
+														<img src="<?php echo base_url() . '/assets/photo/' . $i['gambar'] ?>"
+															alt="Image placeholder" class="me-4 rounded" width="80px;">
+														<div class="text">
+															<h7 style="color : black;">
+																<?= $i['judul']; ?>
+															</h7>
+															<div class="post-meta">
+																<span class="mr-2">
+																	<?= $i['tanggal']; ?>
+																</span>
+															</div>
 														</div>
-													</div>
-												</a>
-											</li>
-										  <?php endforeach; ?>
+													</a>
+												</li>
+											<?php endforeach; ?>
 										</ul>
 									</div>
 								</div> <!-- /.widget -->
@@ -200,19 +234,26 @@
 								<div class="widget">
 									<div class="post-entry-footer">
 										<ul>
-										  <?php foreach ($video as $v): ?>
-											<li>
-												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $v['id_link']; ?>">
-													<!-- <img src="<?php echo base_url().'/assets/photo/'.$v['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="300px;"> -->
-													<div class="text">
-														<h7 style="color : black;"><?= $v['judul_link']; ?></h7>
-														<div class="post-meta">
-															<!-- <span class="mr-2"><?= $v['tanggal']; ?></span> -->
+											<?php foreach ($video as $v): ?>
+												<li>
+													<a href="<?= $v['link']; ?>" target="_blank">
+														<!-- <img src="<?php echo base_url() . '/assets/photo/' . $v['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="300px;"> -->
+														<div class="text">
+															<h7 style="color : black;">
+																<?= $v['judul_link']; ?>
+															</h7>
+
+															<!-- <div class="post-meta">
+																<p>
+																	<?= $v['deskripsi']; ?>
+																</p>
+																<span class="mr-2"><?= $v['tanggal']; ?></span>
+															</div> -->
 														</div>
-													</div>
-												</a>
-											</li>
-										  <?php endforeach; ?>
+													</a>
+													<hr style="margin-bottom:0rem;">
+												</li>
+											<?php endforeach; ?>
 										</ul>
 									</div>
 								</div> <!-- /.widget -->
@@ -226,19 +267,24 @@
 								<div class="widget">
 									<div class="post-entry-footer">
 										<ul>
-										  <?php foreach ($panduan as $p): ?>
-											<li>
-												<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $p['id_berita']; ?>">
-													<img src="<?php echo base_url().'/assets/photo/'.$p['gambar'] ?>" alt="Image placeholder" class="me-4 rounded" width="300px;">
-													<div class="text">
-														<h6 style="color : black;"><?= $p['judul']; ?></h6>
-														<div class="post-meta">
-															<span class="mr-2"><?= $p['tanggal']; ?></span>
+											<?php foreach ($panduan as $p): ?>
+												<li>
+													<a href="<?= base_url(); ?>C_home/DetailBerita/<?= $p['id_berita']; ?>">
+														<img src="<?php echo base_url() . '/assets/photo/' . $p['gambar'] ?>"
+															alt="Image placeholder" class="me-4 rounded" width="300px;">
+														<div class="text">
+															<h6 style="color : black;">
+																<?= $p['judul']; ?>
+															</h6>
+															<div class="post-meta">
+																<span class="mr-2">
+																	<?= $p['tanggal']; ?>
+																</span>
+															</div>
 														</div>
-													</div>
-												</a>
-											</li>
-										  <?php endforeach; ?>
+													</a>
+												</li>
+											<?php endforeach; ?>
 										</ul>
 									</div>
 								</div> <!-- /.widget -->
@@ -249,106 +295,114 @@
 						<img src="<?= base_url(); ?>assets/assets_front/images/benner-hab-2.png" alt="" width="100%">
 					</div>
 					<div class="mb-2">
-						<a href="http://"> 
-							<img src="<?= base_url(); ?>assets/assets_front/images/benner-ki-kd.png" alt="" width="100%">
+						<a href="http://">
+							<img src="<?= base_url(); ?>assets/assets_front/images/benner-ki-kd.png" alt=""
+								width="100%">
 						</a>
 					</div>
 				</div>
-			  </div>
-			  <div class="col-md-4">
+			</div>
+			<div class="col-md-4">
 				<!-- <div class="col-md-4"> -->
-					<div class="card mb-1">
-						<div class="card-header text-white bg-success">
-							<h5 class="fw-bold" style="text-align: center;">ORGANISASI SISWA MTS.SI3</h5>
-						</div>
-						<div class="card-body" style="padding : 0.5rem 0.5rem">
-						  <center>
-							<a href="http://"> 
+				<div class="card mb-1">
+					<div class="card-header text-white bg-success">
+						<h5 class="fw-bold" style="text-align: center;">ORGANISASI SISWA MTS.SI3</h5>
+					</div>
+					<div class="card-body" style="padding : 0.5rem 0.5rem">
+						<center>
+							<a href="http://">
 								<img src="<?= base_url(); ?>assets/assets_front/images/SEPMI_3.jpg" alt="">
 							</a>
-						  </center>
-						</div>
-						<div class="card-footer bg-success"></div>
+						</center>
 					</div>
-					<div class="card mb-1">
-						<div class="card-header text-white bg-success">
-							<h5 class="fw-bold" style="text-align: center;">SIMPATIKA</h5>
-						</div>
-						<div class="card-body" style="padding : 0.5rem 0.5rem">
-						  <center>
-							<a href="http://"> 
-								<img src="<?= base_url(); ?>assets/assets_front/images/simpatika.jpg" alt="" width="100%"><!-- 250px -->
+					<div class="card-footer bg-success"></div>
+				</div>
+				<div class="card mb-1">
+					<div class="card-header text-white bg-success">
+						<h5 class="fw-bold" style="text-align: center;">SIMPATIKA</h5>
+					</div>
+					<div class="card-body" style="padding : 0.5rem 0.5rem">
+						<center>
+							<a href="https://simpatika.kemenag.go.id/madrasah" target="_blank">
+								<img src="<?= base_url(); ?>assets/assets_front/images/simpatika.jpg" alt=""
+									width="100%"><!-- 250px -->
 							</a>
-						  </center>
-						</div>
-						<div class="card-footer bg-success"></div>
+						</center>
 					</div>
-					<div class="card mb-1" style="height: 250px">
-						<div class="card-header text-white bg-success">
-							<h5 class="fw-bold" style="text-align: center;">KATEGORI</h5>
-						</div>
-						<div class="card-body" style="padding: 0.5rem 0.5rem; height: 100%; overflow:auto;">
-							<ul style="margin: 0rem; padding-left: 0rem;">
-								<?php foreach ($kategori as $k): ?>
-									<li class="list-unstyled">
-										<a href="<?= base_url(); ?>front/C_kategoriBerita/index/<?= $k['id_kategori']; ?>"><?= $k['kategori']; ?></a>
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-						<div class="card-footer bg-success"></div>
+					<div class="card-footer bg-success"></div>
+				</div>
+				<div class="card mb-1" style="height: 250px">
+					<div class="card-header text-white bg-success">
+						<h5 class="fw-bold" style="text-align: center;">KATEGORI</h5>
 					</div>
-					<div class="card mb-1"  style="height: 250px">
-						<div class="card-header text-white bg-success">
-							<h5 class="fw-bold" style="text-align: center;">WEB LINK</h5>
-						</div>
-						<div class="card-body" style="padding: 0.5rem 0.5rem; height: 100%; overflow:auto;">
-							<ul style="margin: 0rem; padding-left: 0rem;">
-								<?php foreach ($link as $l): ?>
-									<li class="list-unstyled">
-										<a href=""><?= $l['judul_link']; ?></a>
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-						<div class="card-footer bg-success"></div>
+					<div class="card-body" style="padding: 0.5rem 0.5rem; height: 100%; overflow:auto;">
+						<ul style="margin: 0rem; padding-left: 0rem;">
+							<?php foreach ($kategori as $k): ?>
+								<li class="list-unstyled">
+									<a href="<?= base_url(); ?>front/C_kategoriBerita/index/<?= $k['id_kategori']; ?>">
+										<?= $k['kategori']; ?>
+									</a>
+								</li>
+								<hr style="margin:0rem;">
+							<?php endforeach; ?>
+						</ul>
 					</div>
+					<div class="card-footer bg-success"></div>
+				</div>
+				<div class="card mb-1" style="height: 250px">
+					<div class="card-header text-white bg-success">
+						<h5 class="fw-bold" style="text-align: center;">WEB LINK</h5>
+					</div>
+					<div class="card-body" style="padding: 0.5rem 0.5rem; height: 100%; overflow:auto;">
+						<ul style="margin: 0rem; padding-left: 0rem;">
+							<?php foreach ($link as $l): ?>
+								<li class="list-unstyled">
+									<a href="<?= $l['link']; ?>" target="_blank">
+										<?= $l['judul_link']; ?>
+									</a>
+								</li>
+								<hr style="margin:0rem;">
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<div class="card-footer bg-success"></div>
+				</div>
 				<!-- </div> --> <!-- /.col-md-4 -->
-			  </div>
 			</div>
 		</div>
-	</section>
-	<!-- End posts-entry -->
+	</div>
+</section>
+<!-- End posts-entry -->
 
-	<!-- Start posts-entry -->
-	<section class="section posts-entry posts-entry-sm bg-light" style="padding-top: 0.5rem;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<!-- <div class="mb-2">
+<!-- Start posts-entry -->
+<section class="section posts-entry posts-entry-sm bg-light" style="padding-top: 0.5rem;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<!-- <div class="mb-2">
 						<a href="http://"> 
 							<img src="<?= base_url(); ?>assets/assets_front/images/benner-ki-kd.png" alt="" width="100%">
 						</a>
 					</div> -->
-					<div class="card">
-						<h6 class="card-header">
-							Aktifitas Sekolah
-						</h6>
-						<div class="card-body">
+				<div class="card">
+					<h6 class="card-header">
+						Aktifitas Sekolah
+					</h6>
+					<div class="card-body">
 
-						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
 
-				</div>
 			</div>
 		</div>
-	</section>
-	<!-- End posts-entry -->
+	</div>
+</section>
+<!-- End posts-entry -->
 
-	<!-- Start posts-entry -->
-	<!-- <section class="section posts-entry posts-entry-sm bg-light">
+<!-- Start posts-entry -->
+<!-- <section class="section posts-entry posts-entry-sm bg-light">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-lg-3">
@@ -398,10 +452,10 @@
 			</div>
 		</div>
 	</section> -->
-	<!-- End posts-entry -->
+<!-- End posts-entry -->
 
-	<!-- Start posts-entry -->
-	<!-- <section class="section posts-entry">
+<!-- Start posts-entry -->
+<!-- <section class="section posts-entry">
 		<div class="container">
 			<div class="row mb-4">
 				<div class="col-sm-6">
@@ -464,7 +518,7 @@
 		</div>
 	</section>
  -->
-	<!-- <section class="section">
+<!-- <section class="section">
 		<div class="container">
 
 			<div class="row mb-4">
@@ -647,7 +701,7 @@
 		</div>
 	</section>
  -->
-	<!-- <div class="section bg-light">
+<!-- <div class="section bg-light">
 		<div class="container">
 
 			<div class="row mb-4">

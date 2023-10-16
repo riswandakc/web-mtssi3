@@ -53,7 +53,8 @@
                         <tr align="center">
                             <th>No</th>
                             <th>Judul</th>
-                            <th>Penulis</th>
+                            <th>kategori</th>    
+                            <!-- <th>Penulis</th> -->
                             <th>Tanggal</th>
                             <th>Aksi</th>
                         </tr>
@@ -65,7 +66,8 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $b['judul']; ?></td>
-                            <td><?= $b['penulis']; ?></td>
+                            <td><?= $b['kategori']; ?></td>
+                            <!-- <td><?= $b['penulis']; ?></td> -->
                             <td><?= $b['tanggal']; ?></td>
                             <td>
                                 <a class="btn btn-sm btn-warning" href="<?= base_url(); ?>admin/C_berita/DetailBerita/<?= $b['id_berita']; ?>"><i class=" fas fa-eye"></i></a>

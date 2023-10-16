@@ -3,7 +3,8 @@
         <h1 class="h3 mb-0 text-gray-800"><?= $title; ?></h1>
     </div> -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-md btn-success mb-3 ml-2" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
+    <button type="button" class="btn btn-md btn-success mb-3 ml-2" data-toggle="modal" data-target="#exampleModal"><i
+            class="fas fa-plus"></i>
         Tambah Tautan/Link
     </button>
 
@@ -22,27 +23,29 @@
                         <div class="form-group">
                             <label for="">Judul Link</label>
                             <input type="text" name="judul_link" class="form-control">
-                            <?= form_error('judul_link','<div class="text-small text-danger"></div>'); ?>
+                            <?= form_error('judul_link', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">Kategori Link</label>
-                                <select name="id_kategori" id="" class="custom-select">
-                                    <option value="">--Pilih kategori--</option>
-                                    <?php foreach ($kategori as $k): ?>
-                                        <option value="<?= $k['id_kategori']; ?>"> <?= $k['kategori']; ?> </option>
-                                    <?php endforeach; ?>
-                                </select>
+                            <select name="id_kategori" id="" class="custom-select">
+                                <option value="">--Pilih kategori--</option>
+                                <?php foreach ($kategori as $k): ?>
+                                    <option value="<?= $k['id_kategori']; ?>">
+                                        <?= $k['kategori']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
                             <?= form_error('kategori', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">Deskripsi Link</label>
                             <input type="text" name="deskripsi" class="form-control">
-                            <?= form_error('tanggal','<div class="text-small text-danger"></div>'); ?>
+                            <?= form_error('tanggal', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">Link</label>
                             <input type="text" name="link" class="form-control">
-                            <?= form_error('link','<div class="text-small text-danger"></div>'); ?>
+                            <?= form_error('link', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -54,10 +57,12 @@
         </div>
     </div>
 
-    
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary"><?= $title; ?></h4>
+            <h4 class="m-0 font-weight-bold text-primary">
+                <?= $title; ?>
+            </h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -72,19 +77,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            $no = 1;
-                            foreach ($link as $l ): ?>
-                        <tr>
-                            <td><?= $no++; ?></td>
-                            <td><?= $l['judul_link']; ?></td>
-                            <td><?= $l['kategori']; ?></td>
-                            <td><?= $l['link']; ?></td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="<?= base_url(); ?>admin/C_link/UpdateLink/<?= $l['id_link']; ?>"><i class=" fas fa-edit"></i></a>
-                                <a class="btn btn-sm btn-danger" href="<?= base_url(); ?>admin/C_link/DeleteLink/<?= $l['id_link']; ?>"><i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($link as $l): ?>
+                            <tr>
+                                <td>
+                                    <?= $no++; ?>
+                                </td>
+                                <td>
+                                    <?= $l['judul_link']; ?>
+                                </td>
+                                <td>
+                                    <?= $l['kategori']; ?>
+                                </td>
+                                <td>
+                                    <?= $l['link']; ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary"
+                                        href="<?= base_url(); ?>admin/C_link/UpdateLink/<?= $l['id_link']; ?>"><i
+                                            class=" fas fa-edit"></i></a>
+                                    <a class="btn btn-sm btn-danger"
+                                        href="<?= base_url(); ?>admin/C_link/DeleteLink/<?= $l['id_link']; ?>"><i
+                                            class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

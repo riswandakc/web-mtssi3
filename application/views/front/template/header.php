@@ -66,7 +66,7 @@
 							</form> -->
 
 							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto font-weight-bold" >
-								<li class=""><a href="<?= base_url(); ?>front/C_home">Home</a></li>
+								<li class=""><a href="<?= base_url(); ?>C_home">Home</a></li>
 								<li class="has-children">
 									<a href="#">Profile</a>
 									<ul class="dropdown">
