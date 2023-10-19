@@ -147,6 +147,9 @@
 			</div> -->
 		<div class="row g-3">
 			<div class="col-md-8">
+				<div class="mt-0">
+					<img src="<?= base_url(); ?>assets/assets_front/images/benner-hab-2.png" alt="" width="100%">
+				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="card">
@@ -291,10 +294,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="mt-4">
-						<img src="<?= base_url(); ?>assets/assets_front/images/benner-hab-2.png" alt="" width="100%">
-					</div>
-					<div class="mb-2">
+					<div class="mt-3">
 						<a href="http://">
 							<img src="<?= base_url(); ?>assets/assets_front/images/benner-ki-kd.png" alt=""
 								width="100%">

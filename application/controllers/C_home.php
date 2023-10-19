@@ -9,10 +9,12 @@ class C_home extends CI_Controller
         $data['informasi'] = $this->M_admin->GetDataInformasi()->result_array();
         //kategori berita video
         $data['video'] = $this->M_admin->GetDataVideo()->result_array();
-        //kategori berita video
+        //kategori berita panduan
         $data['panduan'] = $this->M_admin->GetDataPanduan()->result_array();
         //list link
         $data['link'] = $this->M_admin->GetDataTautan()->result_array();
+        //list MPSII
+        /* $data['mpsii'] = $this->M_admin->GetDataMpsii()->result_array(); */
         /* $data['berita'] = $this->M_admin->GetData()->result_array(); */
 
         //pagination

@@ -24,11 +24,8 @@
 
 <section class="section">
   <div class="container">
-
     <div class="row blog-entries element-animate">
-
       <div class="col-md-12 col-lg-8 main-content">
-
         <div class="post-content-body text-justify">
           <div class="row my-4">
             <div class="col-md-12 mb-4">
@@ -48,18 +45,12 @@
           <?= $berita['isi_berita']; ?>
           </p>
         </div>
-
-
         <div class="pt-5">
           <p style="text-align:justify;"></p>Categories:
           <?= $berita['kategori_berita']; ?>
           </p>
         </div>
-
-
-
       </div>
-
       <!-- END main-content -->
 
       <div class="col-md-12 col-lg-4 sidebar">

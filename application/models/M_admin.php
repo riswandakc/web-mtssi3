@@ -1,7 +1,7 @@
 <?php
 class M_admin extends CI_Model
 {
-    /* start model berita */
+    /* ================================================= start model berita ========================================= */
     public function GetData()
     {
         $this->db->SELECT('*');
@@ -45,14 +45,17 @@ class M_admin extends CI_Model
     {
         return $this->db->query("SELECT * FROM tb_berita")->num_rows();
     }
-    /* end model berita */
-    /* start model kategori */
+    /* ================================================= end model berita ======================================== */
+
+    /* =============================================== start model kategori ====================================== */
     public function GetDataKategori()
     {
         return $this->db->query("SELECT * FROM tb_kategori_berita ORDER BY kategori");
     }
-    /* end model kategori */
-    /* start model berita by kategori */
+
+    /* =============================================== end model kategori ======================================== */
+
+    /* ======================================== start model berita by kategori =================================== */
     public function GetDataInformasi()
     {
         return $this->db->query("SELECT * FROM tb_berita WHERE id_kategori ='3' ORDER BY kategori DESC");
@@ -70,8 +73,30 @@ class M_admin extends CI_Model
     {
         return $this->db->query("SELECT * FROM tb_berita WHERE id_kategori ='17' ORDER BY kategori DESC");
     }
-    /* end model berita by kategori */
-    /* Start model Link / Tautan */
+    public function GetDataMpsii()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_berita');
+        $this->db->where('id_kategori = 15');
+        $this->db->order_by('id_kategori', 'DESC');
+        return $this->db->get()->result();
+    }
+    /* ========================================  end model berita by kategori ==================================== */
+
+    /* ========================================= start get all data by kategori ================================== */
+    public function GetAllDataByKategori($id_kategori)
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_berita');
+        $this->db->join('tb_kategori_berita', 'tb_berita.id_kategori = tb_kategori_berita.id_kategori', 'left');
+        $this->db->where('tb_berita.id_kategori', $id_kategori);
+        $this->db->order_by('tb_berita.id_berita', 'DESC');
+        return $this->db->get()->result();
+    }
+    /* ========================================= end get all data by kategori ==================================== */
+
+
+    /* ========================================== Start model Link / Tautan ====================================== */
     public function GetDataTautan()
     {
         $this->db->SELECT('*');
@@ -111,8 +136,9 @@ class M_admin extends CI_Model
     {
         $this->db->update('tb_link', $data, $where);
     }
-    /* end model Link / Tautan */
-    /* start show data pagination */
+    /* ============================================= end model Link / Tautan ===================================== */
+
+    /* =========================================== start show data pagination ==================================== */
     public function GetDataPage($limit, $start)
     {
         $this->db->SELECT('*');
@@ -130,21 +156,9 @@ class M_admin extends CI_Model
          $query = $this->db->get();
          return $query; */
     }
-    /* end show data pagination */
+    /* ============================================ end show data pagination ===================================== */
 
-    //start get all data by kategori
-    public function GetAllDataByKategori($id_kategori)
-    {
-        $this->db->SELECT('*');
-        $this->db->from('tb_berita');
-        $this->db->join('tb_kategori_berita', 'tb_berita.id_kategori = tb_kategori_berita.id_kategori', 'left');
-        $this->db->where('tb_berita.id_kategori', $id_kategori);
-        $this->db->order_by('tb_berita.id_berita', 'DESC');
-        return $this->db->get()->result();
-
-    }
-    //end get all data by kategori
-//start model galeri
+    /* ============================================== start model galeri ========================================= */
     public function getDataGaleri()
     {
         $this->db->SELECT('*');
@@ -172,8 +186,9 @@ class M_admin extends CI_Model
     {
         return $this->db->query("DELETE FROM tb_galeri WHERE id_galeri = $id_galeri");
     }
-    //end model galeri
-//start model login
+    /* ================================================= end model galeri ======================================== */
+
+    /* ================================================ start model login ======================================== */
     public function cek_login()
     {
         $username = set_value('username');
@@ -189,8 +204,9 @@ class M_admin extends CI_Model
             return FALSE;
         }
     }
-    //end model login
-//start slider
+    /* ================================================= end model login ========================================= */
+
+    /* ================================================= Start slider ============================================ */
     public function getDataSlider1()
     {
         $this->db->SELECT('*');
@@ -207,7 +223,24 @@ class M_admin extends CI_Model
         $this->db->limit(4);
         return $this->db->get()->result();
     }
-    //end slider
+    /* ================================================= end slider ============================================ */
+
+    /* ================================================= Start PTK ============================================ */
+    public function getDataPtk()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_pendidik');
+        $this->db->order_by('id_pendidik', 'DESC');
+        return $this->db->get();
+    }
+
+    public function deletePendidik($id_pendidik)
+    {
+        return $this->db->query("DELETE FROM tb_pendidik WHERE id_pendidik = $id_pendidik");
+    }
+    /* ================================================= End PTK ============================================ */
+
+
 
 
 }

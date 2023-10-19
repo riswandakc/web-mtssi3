@@ -1,4 +1,3 @@
-
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -23,6 +22,11 @@
                 <a class="nav-link" href="<?= base_url(); ?>admin/C_dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>admin/C_ptk">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data PTK</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -118,9 +122,9 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <ul class="na navbar-nav navbar-right">
-                            
+
                         </ul>
-                        
+
 
                     </ul>
 
