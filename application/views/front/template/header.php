@@ -130,7 +130,8 @@
 									<ul class="dropdown">
 										<li><a href="#">Sejarah</a></li>
 										<li><a href="#">Struktur Pengurus</a></li>
-										<li><a href="#">Informasi kegiatan</a></li>
+										<li><a href="<?= base_url(); ?>front/C_kategoriBerita/sepmi">Informasi
+												kegiatan</a></li>
 									</ul>
 								</li>
 								<li class="has-children">

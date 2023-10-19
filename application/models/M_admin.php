@@ -81,6 +81,14 @@ class M_admin extends CI_Model
         $this->db->order_by('id_kategori', 'DESC');
         return $this->db->get()->result();
     }
+    public function GetDataSepmi()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_berita');
+        $this->db->where('id_kategori = 25');
+        $this->db->order_by('id_kategori', 'DESC');
+        return $this->db->get()->result();
+    }
     /* ========================================  end model berita by kategori ==================================== */
 
     /* ========================================= start get all data by kategori ================================== */
@@ -94,7 +102,6 @@ class M_admin extends CI_Model
         return $this->db->get()->result();
     }
     /* ========================================= end get all data by kategori ==================================== */
-
 
     /* ========================================== Start model Link / Tautan ====================================== */
     public function GetDataTautan()
