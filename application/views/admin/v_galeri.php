@@ -4,7 +4,8 @@
     </div> -->
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-md btn-success mb-3 ml-2" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
+    <button type="button" class="btn btn-md btn-success mb-3 ml-2" data-toggle="modal" data-target="#exampleModal"><i
+            class="fas fa-plus"></i>
         Upload Photo
     </button>
 
@@ -23,26 +24,35 @@
                         <div class="form-group">
                             <label for="">Judul Photo</label>
                             <input type="text" name="judul" class="form-control">
-                            <?= form_error('judul','<div class="text-small text-danger"></div>'); ?>
+                            <?= form_error('judul', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">Deskripsi Photo</label>
                             <input type="text" name="deskripsi" class="form-control">
-                            <?= form_error('deskripsi','<div class="text-small text-danger"></div>'); ?>
-                        </div>
-                        <div class="form-group">   
-                            <label for="">gambar</label>
-                            <input type="file" name="gambar" class="form-control">
-                            <?= form_error('gambar','<div class="text-small text-danger"></div>');?>
+                            <?= form_error('deskripsi', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">status</label>
-                                <select name="status" id="" class="custom-select">
-                                    <option value="">--Pilih status--</option>
-                                        <option value="aktif"> Aktif </option>
-                                        <option value="tidak aktif"> Tidak Aktif </option>
-                                </select>
+                            <select name="status" id="" class="custom-select">
+                                <option value="">--Pilih status--</option>
+                                <option value="aktif"> Aktif </option>
+                                <option value="tidak aktif"> Tidak Aktif </option>
+                            </select>
                             <?= form_error('status', '<div class="text-small text-danger"></div>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="">kategori</label>
+                            <select name="kategori" id="" class="custom-select">
+                                <option value="">--Pilih status--</option>
+                                <option value="1"> Galeri </option>
+                                <option value="2"> Banner </option>
+                            </select>
+                            <?= form_error('kategori', '<div class="text-small text-danger"></div>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="">gambar</label>
+                            <input type="file" name="gambar" class="form-control">
+                            <?= form_error('gambar', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -54,10 +64,12 @@
         </div>
     </div>
 
-    
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary"><?= $title; ?></h4>
+            <h4 class="m-0 font-weight-bold text-primary">
+                <?= $title; ?>
+            </h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -73,20 +85,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            $no = 1;
-                            foreach ($galeri as $g ): ?>
-                        <tr>
-                            <td><?= $no++; ?></td>
-                            <td><img src="<?php echo base_url().'/assets/photo/'.$g->gambar ?>" width="100px"></td>
-                            <td><?= $g->judul; ?></td>
-                            <td><?= $g->deskripsi; ?></td>
-                            <td><?= $g->status; ?></td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="<?= base_url(); ?>admin/C_galeri/Updategaleri/<?= $g->id_galeri; ?>"><i class=" fas fa-edit"></i></a>
-                                <a class="btn btn-sm btn-danger" href="<?= base_url(); ?>admin/C_galeri/Deletegaleri/<?= $g->id_galeri; ?>"><i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($galeri as $g): ?>
+                            <tr>
+                                <td>
+                                    <?= $no++; ?>
+                                </td>
+                                <td><img src="<?php echo base_url() . '/assets/photo/' . $g->gambar ?>" width="100px"></td>
+                                <td>
+                                    <?= $g->judul; ?>
+                                </td>
+                                <td>
+                                    <?= $g->deskripsi; ?>
+                                </td>
+                                <td>
+                                    <?= $g->status; ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary"
+                                        href="<?= base_url(); ?>admin/C_galeri/Updategaleri/<?= $g->id_galeri; ?>"><i
+                                            class=" fas fa-edit"></i></a>
+                                    <a class="btn btn-sm btn-danger"
+                                        href="<?= base_url(); ?>admin/C_galeri/Deletegaleri/<?= $g->id_galeri; ?>"><i
+                                            class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

@@ -13,9 +13,8 @@ class C_home extends CI_Controller
         $data['panduan'] = $this->M_admin->GetDataPanduan()->result_array();
         //list link
         $data['link'] = $this->M_admin->GetDataTautan()->result_array();
-        //list MPSII
-        /* $data['mpsii'] = $this->M_admin->GetDataMpsii()->result_array(); */
-        /* $data['berita'] = $this->M_admin->GetData()->result_array(); */
+        //list Banner
+        $data['galeri'] = $this->M_admin->getDataBanner();
 
         //pagination
         //$this->load->library('pagination');

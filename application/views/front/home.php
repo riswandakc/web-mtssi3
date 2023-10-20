@@ -147,8 +147,10 @@
 			</div> -->
 		<div class="row g-3">
 			<div class="col-md-8">
-				<div class="mt-0">
-					<img src="<?= base_url(); ?>assets/assets_front/images/benner-hab-2.png" alt="" width="100%">
+				<div class="mt-0 mb-3">
+					<?php foreach ($galeri as $g): ?>
+						<img src="<?php echo base_url() . '/assets/photo/' . $g->gambar ?>" alt="" width="100%">
+					<?php endforeach; ?>
 				</div>
 				<div class="row">
 					<div class="col-md-6">

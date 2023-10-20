@@ -171,6 +171,24 @@ class M_admin extends CI_Model
         $this->db->SELECT('*');
         $this->db->from('tb_galeri');
         $this->db->order_by('id_galeri', 'DESC');
+        $this->db->where('kategori = 1');
+        return $this->db->get()->result();
+    }
+    public function getDataBannerAdmin()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_galeri');
+        $this->db->order_by('id_galeri', 'DESC');
+        $this->db->where('kategori = 2');
+        return $this->db->get()->result();
+    }
+    public function getDataBanner()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_galeri');
+        $this->db->order_by('id_galeri', 'DESC');
+        $this->db->where('kategori = 2');
+        $this->db->limit(1);
         return $this->db->get()->result();
     }
     public function getDataGaleriById($id_galeri)
@@ -219,6 +237,7 @@ class M_admin extends CI_Model
         $this->db->SELECT('*');
         $this->db->from('tb_galeri');
         $this->db->order_by('id_galeri', 'DESC');
+        $this->db->where('kategori = 1');
         $this->db->limit(4);
         return $this->db->get()->result();
     }
