@@ -2,13 +2,13 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <!--  <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">
             <?= $title; ?>
         </h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
+    </div> -->
 
 
     <div class="card shadow mb-4">
@@ -24,6 +24,7 @@
                         <tr align="center">
                             <th>Photo</th>
                             <th>Judul banner</th>
+                            <th>status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -32,9 +33,12 @@
                         $no = 1;
                         foreach ($galeri as $g): ?>
                             <tr>
-                                <td><img src="<?php echo base_url() . '/assets/photo/' . $g->gambar ?>"></td>
+                                <td><img src="<?php echo base_url() . '/assets/photo/' . $g->gambar ?>" width="400px"></td>
                                 <td>
                                     <?= $g->judul; ?>
+                                </td>
+                                <td>
+                                    <?= $g->status; ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-primary"

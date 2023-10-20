@@ -3,7 +3,9 @@
 	<div class="container">
 		<div class="banner-web mb-2">
 			<a href="">
-				<img src="<?= base_url(); ?>assets/assets_front/images/header_blog.jpg" alt="" width="100%">
+				<?php foreach ($banner as $b): ?>
+					<img src="<?php echo base_url() . '/assets/photo/' . $b->gambar ?>" alt="" width="100%">
+				<?php endforeach; ?>
 			</a>
 		</div>
 		<div class="row align-items-stretch retro-layout">
@@ -91,7 +93,7 @@
 						foreach ($slider_berita as $key => $value) {
 							if ($key == 0) { ?>
 								<div class="carousel-item active">
-									<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+									<a href="<?= base_url(); ?>C_home/DetailBerita/<?= $value->id_berita; ?>">
 										<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt=""
 											width="100%" style="width: 100%; height: 300px; object-fit: cover;">
 										<div class="carousel-caption d-none d-md-block">
@@ -103,7 +105,7 @@
 								</div>
 							<?php } else { ?>
 								<div class="carousel-item">
-									<a href="<?= base_url(); ?>front/C_home/DetailBerita/<?= $value->id_berita; ?>">
+									<a href="<?= base_url(); ?>C_home/DetailBerita/<?= $value->id_berita; ?>">
 										<img src="<?php echo base_url() . '/assets/photo/' . $value->gambar ?>" alt=""
 											width="100%" style="width: 100%; height: 300px; object-fit: cover;">
 										<div class="carousel-caption d-none d-md-block">

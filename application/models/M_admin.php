@@ -179,15 +179,25 @@ class M_admin extends CI_Model
         $this->db->SELECT('*');
         $this->db->from('tb_galeri');
         $this->db->order_by('id_galeri', 'DESC');
-        $this->db->where('kategori = 2');
+        $this->db->where('kategori != 1');
         return $this->db->get()->result();
     }
+    /* diatas list banner pada tampilan admin */
     public function getDataBanner()
     {
         $this->db->SELECT('*');
         $this->db->from('tb_galeri');
         $this->db->order_by('id_galeri', 'DESC');
-        $this->db->where('kategori = 2');
+        $this->db->where("(kategori = '2' AND status ='aktif')");
+        $this->db->limit(1);
+        return $this->db->get()->result();
+    }
+    public function getDataBannerHome()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_galeri');
+        $this->db->order_by('id_galeri', 'DESC');
+        $this->db->where("(kategori = '3' AND status ='aktif')");
         $this->db->limit(1);
         return $this->db->get()->result();
     }

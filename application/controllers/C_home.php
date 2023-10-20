@@ -13,19 +13,22 @@ class C_home extends CI_Controller
         $data['panduan'] = $this->M_admin->GetDataPanduan()->result_array();
         //list link
         $data['link'] = $this->M_admin->GetDataTautan()->result_array();
-        //list Banner
+        //Banner Ucapan
         $data['galeri'] = $this->M_admin->getDataBanner();
+        //Banner Home
+        $data['banner'] = $this->M_admin->getDataBannerHome();
+
 
         //pagination
         //$this->load->library('pagination');
         //config
-        $config['base_url'] = 'http://localhost/mtssi3/front/C_home/index';
+        $config['base_url'] = 'http://localhost/mtssi3/C_home/index';
         $config['total_rows'] = $this->M_admin->hitungAllData();
         $config['per_page'] = 7;
 
         //initialize
         $this->pagination->initialize($config);
-        $data['start'] = $this->uri->segment(4);
+        $data['start'] = $this->uri->segment(3);
         $data['berita'] = $this->M_admin->GetDataPage($config['per_page'], $data['start'])->result_array();
 
         //slider

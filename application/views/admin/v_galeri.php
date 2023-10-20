@@ -45,13 +45,16 @@
                             <select name="kategori" id="" class="custom-select">
                                 <option value="">--Pilih status--</option>
                                 <option value="1"> Galeri </option>
-                                <option value="2"> Banner </option>
+                                <option value="2"> Banner Ucapan </option>
+                                <option value="3"> Banner Home </option>
                             </select>
                             <?= form_error('kategori', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">gambar</label>
                             <input type="file" name="gambar" class="form-control">
+                            <span class="badge badge-danger">ukuran banner = 6 : 2</span>
+                            <span class="badge badge-danger">ukuran galeri = 4 : 2</span>
                             <?= form_error('gambar', '<div class="text-small text-danger"></div>'); ?>
                         </div>
                     </div>

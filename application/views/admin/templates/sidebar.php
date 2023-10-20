@@ -25,8 +25,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>admin/C_ptk">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-chalkboard-teacher"></i>
                     <span>Data PTK</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>admin/C_profilSekolah">
+                    <i class="fas fa-fw fa-school"></i>
+                    <span>Profil Sekolah</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -45,7 +50,6 @@
                     </div>
                 </div>
             </li>
-
             <!-- Nav Item - Utilities Collapse Menu -->
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
