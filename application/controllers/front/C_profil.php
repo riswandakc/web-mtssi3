@@ -1,13 +1,15 @@
-<?php 
-class C_profil extends CI_controller{
+<?php
+class C_profil extends CI_controller
+{
     public function Sambutan()
     {
         $data['title'] = "MTs. Syarikat Islam 3";
         $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
         $data['berita'] = $this->M_admin->GetData()->result_array();
         $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
-        $this->load->view('front/template/header',$data);
-        $this->load->view('front/Sambutan',$data);
+        $data['profilMts'] = $this->M_admin->GetDataProfilMts()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/Sambutan', $data);
         $this->load->view('front/template/footer');
     }
 
@@ -17,8 +19,9 @@ class C_profil extends CI_controller{
         $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
         $data['berita'] = $this->M_admin->GetData()->result_array();
         $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
-        $this->load->view('front/template/header',$data);
-        $this->load->view('front/visiMisi',$data);
+        $data['profilMts'] = $this->M_admin->GetDataProfilMts()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/visiMisi', $data);
         $this->load->view('front/template/footer');
     }
     public function StrukturMD()
@@ -27,8 +30,9 @@ class C_profil extends CI_controller{
         $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
         $data['berita'] = $this->M_admin->GetData()->result_array();
         $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
-        $this->load->view('front/template/header',$data);
-        $this->load->view('front/StrukturMD',$data);
+        $data['profilMts'] = $this->M_admin->GetDataProfilMts()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/StrukturMD', $data);
         $this->load->view('front/template/footer');
     }
     public function StrukturLembaga()
@@ -37,8 +41,9 @@ class C_profil extends CI_controller{
         $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
         $data['berita'] = $this->M_admin->GetData()->result_array();
         $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
-        $this->load->view('front/template/header',$data);
-        $this->load->view('front/StrukturLembaga',$data);
+        $data['profilMts'] = $this->M_admin->GetDataProfilMts()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/StrukturLembaga', $data);
         $this->load->view('front/template/footer');
     }
     public function LatarBelakang()
@@ -47,8 +52,9 @@ class C_profil extends CI_controller{
         $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
         $data['berita'] = $this->M_admin->GetData()->result_array();
         $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
-        $this->load->view('front/template/header',$data);
-        $this->load->view('front/LatarBelakang',$data);
+        $data['profilMts'] = $this->M_admin->GetDataProfilMts()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/LatarBelakang', $data);
         $this->load->view('front/template/footer');
     }
 }

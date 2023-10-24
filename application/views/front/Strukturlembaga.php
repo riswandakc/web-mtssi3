@@ -23,8 +23,10 @@
       <div class="col-md-12 col-lg-8 main-content">
         <div class="post-content-body text-justify">
           <div class="mg-card-box padding-20">
-            <img class="aligncenter" src="<?php echo base_url() . '/assets/assets_front/images/StrukturMD.png' ?>"
-              width="100%" /></p>
+            <?php foreach ($profilMts as $p): ?>
+              <img class="aligncenter" src="<?php echo base_url() . '/assets/photo/profil/' . $p['struktur1'] ?>"
+                width="100%" /></p>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

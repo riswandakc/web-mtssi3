@@ -276,6 +276,41 @@ class M_admin extends CI_Model
     }
     /* ================================================= End PTK ============================================ */
 
+    /* ============================================== Start Profil ========================================== */
+    public function getDataProfil()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_profil_sekolah');
+        $this->db->order_by('id_profil', 'DESC');
+        return $this->db->get();
+    }
+
+    public function getProfilById($id_profil)
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_profil_sekolah');
+        $this->db->where('id_profil', $id_profil);
+        $this->db->order_by('id_profil', 'DESC');
+        return $this->db->get()->row_array();
+        /* return $this->db->query("SELECT * FROM tb_berita WHERE id_berita = $id_berita")->row_array(); */
+    }
+    public function updateProfil($data, $where)
+    {
+        $this->db->update('tb_profil_sekolah', $data, $where);
+    }
+    public function deleteProfil($id_profil)
+    {
+        return $this->db->query("DELETE FROM tb_profil_sekolah WHERE id_profil = $id_profil");
+    }
+    public function getDataProfilMts()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_profil_sekolah');
+        /* $this->db->where("(profil = 'MTS')"); */
+        $this->db->where('id_profil = 1');
+        return $this->db->get();
+    }
+    /* ================================================= End Profil ============================================ */
 
 
 

@@ -17,85 +17,61 @@ class C_profilSekolah extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Berita";
-        $data['berita'] = $this->M_admin->GetData()->result_array();
+        $data['title'] = "Profil";
+        $data['profil'] = $this->M_admin->GetDataProfil()->result_array();
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/v_berita', $data);
+        $this->load->view('admin/v_profil', $data);
         $this->load->view('admin/templates/footer');
-    }
-    public function tambahKategoriBerita()
-    {
-        $this->form_validation->set_rules('kategori', 'kategori', 'required');
-        $this->form_validation->set_rules('kategori', 'kategori', 'required');
-        if ($this->form_validation->run() == FALSE) {
-            $data['title'] = "Berita";
-            $this->load->view('admin/templates/header', $data);
-            $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/v_berita', $data);
-            $this->load->view('admin/templates/footer');
-        } else {
-            $kategori = $this->input->post('kategori');
-            $keterangan = $this->input->post('keterangan');
-            $data = array(
-                'kategori' => $kategori,
-                'keterangan' => $keterangan
-            );
-            $this->M_admin->insert_data($data, 'tb_kategori_berita');
-            $this->session->set_flashdata('pesan', '
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Data Berhasil Ditambahkan!!!</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            ');
-            redirect('admin/C_berita/index');
-        }
     }
     public function tambahData()
     {
         $data['title'] = "Form Tambah data";
-        $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
-        $this->form_validation->set_rules('judul', 'judul', 'required');
-        $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
-        $this->form_validation->set_rules('penulis', 'penulis', 'required');
-        $this->form_validation->set_rules('id_kategori', 'kategori', 'required');
-        $this->form_validation->set_rules('isi_berita', 'isi_berita', 'required');
+        $this->form_validation->set_rules('profil', 'profil', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/templates/header', $data);
             $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/v_beritaCreate', $data);
+            $this->load->view('admin/v_profilCreate', $data);
             $this->load->view('admin/templates/footer');
         } else {
-            $judul = $this->input->post('judul');
-            $isi_berita = $this->input->post('isi_berita');
-            $penulis = $this->input->post('penulis');
-            $tanggal = $this->input->post('tanggal');
-            $id_kategori = $this->input->post('id_kategori');
-            $gambar = $_FILES['gambar']['name'];
-            if ($gambar = '') {
-            } else {
-                $config['upload_path'] = './assets/photo';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $profil = $this->input->post('profil');
+            $sejarah = $this->input->post('sejarah');
+            $sambutan = $this->input->post('sambutan');
+            $visi = $this->input->post('visi');
+            $misi = $this->input->post('misi');
 
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('gambar')) {
-                    echo "gambar gagal diupload!";
-                } else {
-                    $gambar = $this->upload->data('file_name');
-                }
+            /* dibawah merupakan cara upload multiple files */
+            $config['upload_path'] = './assets/photo/profil';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $this->load->library('upload', $config);
+            //gambar struktur 1
+            if (!empty($_FILES['struktur1'])) {
+                $this->upload->do_upload('struktur1');
+                $struktur1 = $this->upload->data('file_name');
             }
+            //gambar struktur 2
+            if (!empty($_FILES['struktur2'])) {
+                $this->upload->do_upload('struktur2');
+                $struktur2 = $this->upload->data('file_name');
+            }
+            if (!empty($_FILES['photo'])) {
+                $this->upload->do_upload('photo');
+                $photo = $this->upload->data('file_name');
+            }
+            /* end of cara upload multiple files */
+
             $data = array(
-                'judul' => $judul,
-                'isi_berita' => $isi_berita,
-                'penulis' => $penulis,
-                'tanggal' => $tanggal,
-                'id_kategori' => $id_kategori,
-                'gambar' => $gambar
+                'profil' => $profil,
+                'sejarah' => $sejarah,
+                'sambutan' => $sambutan,
+                'visi' => $visi,
+                'misi' => $misi,
+                'struktur1' => $struktur1,
+                'struktur2' => $struktur2,
+                'photo' => $photo
             );
-            $this->M_admin->insert_data($data, 'tb_berita');
+            $this->M_admin->insert_data($data, 'tb_profil_sekolah');
             $this->session->set_flashdata('pesan', '
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Data Berhasil Ditambahkan!!!</strong>
@@ -104,52 +80,65 @@ class C_profilSekolah extends CI_Controller
                     </button>
                 </div>
             ');
-            redirect('admin/C_berita/index');
+            redirect('admin/C_profilSekolah/index');
         }
 
     }
-    public function detailBerita($id_berita)
-    {
-        $data['title'] = "Detail Berita";
-        $data['berita'] = $this->M_admin->getBeritaById($id_berita);
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/v_beritaDetail', $data);
-        $this->load->view('admin/templates/footer');
-    }
-    public function updateBerita($id_berita)
+    public function update($id_profil)
     {
         $data['title'] = "Form Edit Berita";
-        $data['berita'] = $this->M_admin->getBeritaById($id_berita);
-        $this->form_validation->set_rules('judul', 'judul', 'required');
-        $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
-        $this->form_validation->set_rules('penulis', 'penulis', 'required');
-        $this->form_validation->set_rules('isi_berita', 'isi_berita', 'required');
+        $data['profil'] = $this->M_admin->getProfilById($id_profil);
+        $this->form_validation->set_rules('profil', 'profil', 'required');
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('admin/templates/header', $data);
             $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/v_beritaUpdate', $data);
+            $this->load->view('admin/v_profilUpdate', $data);
             $this->load->view('admin/templates/footer');
         } else {
-            $id_berita = $this->input->post('id_berita');
-            $judul = $this->input->post('judul');
-            $isi_berita = $this->input->post('isi_berita');
-            $id_kategori = $this->input->post('id_kategori');
-            $penulis = $this->input->post('penulis');
-            $tanggal = $this->input->post('tanggal');
+            $id_profil = $this->input->post('id_profil');
+            $profil = $this->input->post('profil');
+            $sejarah = $this->input->post('sejarah');
+            $sambutan = $this->input->post('sambutan');
+            $visi = $this->input->post('visi');
+            $misi = $this->input->post('misi');
+
+            /* dibawah merupakan cara upload multiple files */
+            $config['upload_path'] = './assets/photo/profil';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $this->load->library('upload', $config);
+            //gambar struktur 1
+            if (!empty($_FILES['struktur1'])) {
+                $this->upload->do_upload('struktur1');
+                $struktur1 = $this->upload->data('file_name');
+            }
+            //gambar struktur 2
+            if (!empty($_FILES['struktur2'])) {
+                $this->upload->do_upload('struktur2');
+                $struktur2 = $this->upload->data('file_name');
+            }
+            if (!empty($_FILES['photo'])) {
+                $this->upload->do_upload('photo');
+                $photo = $this->upload->data('file_name');
+            }
+            /* end of cara upload multiple files */
 
             $data = array(
-                'judul' => $judul,
-                'isi_berita' => $isi_berita,
-                'id_kategori' => $id_kategori,
-                'penulis' => $penulis,
-                'tanggal' => $tanggal,
+                'id_profil' => $id_profil,
+                'profil' => $profil,
+                'sejarah' => $sejarah,
+                'sambutan' => $sambutan,
+                'visi' => $visi,
+                'misi' => $misi,
+                'struktur1' => $struktur1,
+                'struktur2' => $struktur2,
+                'photo' => $photo
             );
             $where = array(
-                'id_berita' => $id_berita
+                'id_profil' => $id_profil
             );
-            $this->M_admin->updateBerita($data, $where);
+            $this->M_admin->updateProfil($data, $where);
             $this->session->set_flashdata('pesan', '
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Data Berhasil Ditambahkan!!!</strong>
@@ -158,12 +147,12 @@ class C_profilSekolah extends CI_Controller
                     </button>
                 </div>
             ');
-            redirect('admin/C_berita/index');
+            redirect('admin/C_profilSekolah/index');
         }
     }
-    public function deleteBerita($id_berita)
+    public function Delete($id_profil)
     {
-        $this->M_admin->deleteBerita($id_berita);
+        $this->M_admin->deleteProfil($id_profil);
         $this->session->set_flashdata('pesan', '
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Dihapus!!!</strong>
@@ -171,7 +160,7 @@ class C_profilSekolah extends CI_Controller
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>');
-        redirect('admin/C_berita/index');
+        redirect('admin/C_profilSekolah/index');
     }
 
 

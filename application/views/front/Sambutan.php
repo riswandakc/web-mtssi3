@@ -24,30 +24,34 @@
         <div class="post-content-body text-justify">
 
           <div class="mg-card-box padding-20">
-            <center>
-              <p><img decoding="async" class="alignnone wp-image-1315"
-                  src="https://www.smkn1-cmi.sch.id/wp-content/uploads/2023/05/Agus-Priyatmono-Nugroho-S.Pd_.-M.Si_.png"
-                  alt="" width="234" height="248" /></p>
-            </center>
-            <p style="text-align: justify;">Bismillahirohmannirrohim</p>
-            <p style="text-align: justify;">Assalamualaikum Warahmatullah Wabarakatuh</p>
-            <p style="text-align: justify;">Kami mengucapkan selamat datang di Website kami Sekolah Menengah Kejuruan
-              Negeri (SMKN) 1 Cimahi yang saya tujukan untuk seluruh unsur pimpinan, guru, karyawan dan siswa masyarakat
-              guna dapat mengakses seluruh informasi tentang segala profil, aktifitas/kegiatan serta fasilitas sekolah
-              kami.</p>
-            <p style="text-align: justify;">Kami selaku pimpinan sekolah mengucapkan terima kasih kepada tim pembuat
-              Website ini yang telah berusaha untuk dapat lebih memperkenalkan segala perihal yang dimiliki oleh
-              sekolah. Dan tentunya Website sekolah kami masih terdapat banyak kekurangan, oleh karena itu kepada
-              seluruh civitas akademika dan masyarakat umum dapat memberikan saran dan kritik yang membangun demi
-              kemajuan Website ini lebih lanjut.</p>
-            <p style="text-align: justify;">Saya berharap Website ini dapat dijadikan sarana interaksi yang positif baik
-              antar warga sekolah maupun masyarakat pada umumnya sehingga sehingga informasi dapat tersampaikan dengan
-              baik. Semoga Allah SWT memberikan kekuatan bagi kita semua untuk mencerdaskan anak-anak bangsa.</p>
-            <p style="text-align: justify;">Wassalamualikum Wr.Wb.</p>
-            <p>Kepala SMK Negeri 1 Cimahi</p>
-            <p>&nbsp;</p>
-            <p><strong>Agus Priyatmono Nugroho, S.Pd., M.Si.</strong></p>
-
+            <?php foreach ($profilMts as $p): ?>
+              <center>
+                <p><img decoding="async" class="alignnone wp-image-1315"
+                    src="<?php echo base_url() . '/assets/photo/profil/' . $p['photo'] ?>" alt="" width="234"
+                    height="248" />
+                </p>
+              </center>
+              <p style="text-align: justify;">
+                <?= $p['sambutan']; ?>
+              </p>
+              <!-- <p style="text-align: justify;">Assalamualaikum Warahmatullah Wabarakatuh</p>
+              <p style="text-align: justify;">Kami mengucapkan selamat datang di Website kami Sekolah Menengah Kejuruan
+                Negeri (SMKN) 1 Cimahi yang saya tujukan untuk seluruh unsur pimpinan, guru, karyawan dan siswa masyarakat
+                guna dapat mengakses seluruh informasi tentang segala profil, aktifitas/kegiatan serta fasilitas sekolah
+                kami.</p>
+              <p style="text-align: justify;">Kami selaku pimpinan sekolah mengucapkan terima kasih kepada tim pembuat
+                Website ini yang telah berusaha untuk dapat lebih memperkenalkan segala perihal yang dimiliki oleh
+                sekolah. Dan tentunya Website sekolah kami masih terdapat banyak kekurangan, oleh karena itu kepada
+                seluruh civitas akademika dan masyarakat umum dapat memberikan saran dan kritik yang membangun demi
+                kemajuan Website ini lebih lanjut.</p>
+              <p style="text-align: justify;">Saya berharap Website ini dapat dijadikan sarana interaksi yang positif baik
+                antar warga sekolah maupun masyarakat pada umumnya sehingga sehingga informasi dapat tersampaikan dengan
+                baik. Semoga Allah SWT memberikan kekuatan bagi kita semua untuk mencerdaskan anak-anak bangsa.</p>
+              <p style="text-align: justify;">Wassalamualikum Wr.Wb.</p>
+              <p>Kepala SMK Negeri 1 Cimahi</p>
+              <p>&nbsp;</p>
+              <p><strong>Agus Priyatmono Nugroho, S.Pd., M.Si.</strong></p> -->
+            <?php endforeach; ?>
           </div>
 
         </div>
