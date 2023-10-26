@@ -306,8 +306,21 @@ class M_admin extends CI_Model
     {
         $this->db->SELECT('*');
         $this->db->from('tb_profil_sekolah');
-        /* $this->db->where("(profil = 'MTS')"); */
         $this->db->where('id_profil = 1');
+        return $this->db->get();
+    }
+    public function getDataProfilMpsii()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_profil_sekolah');
+        $this->db->where('id_profil = 2');
+        return $this->db->get();
+    }
+    public function getDataProfilSepmi()
+    {
+        $this->db->SELECT('*');
+        $this->db->from('tb_profil_sekolah');
+        $this->db->where('id_profil = 3');
         return $this->db->get();
     }
     /* ================================================= End Profil ============================================ */

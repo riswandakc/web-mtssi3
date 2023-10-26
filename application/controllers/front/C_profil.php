@@ -57,5 +57,27 @@ class C_profil extends CI_controller
         $this->load->view('front/LatarBelakang', $data);
         $this->load->view('front/template/footer');
     }
+    public function StrukturMpsii()
+    {
+        $data['title'] = "MTs. Syarikat Islam 3";
+        $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
+        $data['berita'] = $this->M_admin->GetData()->result_array();
+        $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
+        $data['profilMpsii'] = $this->M_admin->GetDataProfilMpsii()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/StrukturMpsii', $data);
+        $this->load->view('front/template/footer');
+    }
+    public function StrukturSepmi()
+    {
+        $data['title'] = "MTs. Syarikat Islam 3";
+        $data['kategori'] = $this->M_admin->GetDataKategori()->result_array();
+        $data['berita'] = $this->M_admin->GetData()->result_array();
+        $data['beritalist'] = $this->M_admin->GetDataLimit()->result_array();
+        $data['profilSepmi'] = $this->M_admin->GetDataProfilSepmi()->result_array();
+        $this->load->view('front/template/header', $data);
+        $this->load->view('front/StrukturSepmi', $data);
+        $this->load->view('front/template/footer');
+    }
 }
 ?>

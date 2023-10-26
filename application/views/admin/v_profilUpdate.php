@@ -19,7 +19,7 @@
                     <input type="file" name="photo" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Sejarah</label>
+                    <label for="">Sejarah / Latar Belakang</label>
                     <textarea class="form-control" id="sejarah" name="sejarah"
                         rows="15"><?= $profil['sejarah']; ?></textarea>
                     <!-- <?= form_error('sejarah', '<div class="text-small text-danger"></div>'); ?> -->

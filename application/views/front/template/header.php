@@ -119,7 +119,8 @@
 									<a href="#">MPSII</a>
 									<ul class="dropdown">
 										<li><a href="#">Sejarah</a></li>
-										<li><a href="#">Struktur Pengurus</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/strukturMpsii">Struktur
+												Pengurus</a></li>
 										<li><a href="<?= base_url(); ?>front/C_kategoriBerita/mpsii">Informasi
 												kegiatan</a>
 										</li>
@@ -129,7 +130,8 @@
 									<a href="#">SEPMI</a>
 									<ul class="dropdown">
 										<li><a href="#">Sejarah</a></li>
-										<li><a href="#">Struktur Pengurus</a></li>
+										<li><a href="<?= base_url(); ?>front/C_profil/strukturSepmi">Struktur
+												Pengurus</a></li>
 										<li><a href="<?= base_url(); ?>front/C_kategoriBerita/sepmi">Informasi
 												kegiatan</a></li>
 									</ul>
